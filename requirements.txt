@@ -1,0 +1,21 @@
+# Language model and vector store dependencies
+langchain
+langchain-openai
+langchain-community
+weaviate-client
+openai
+
+# Data manipulation and visualization
+pandas
+plotly
+seaborn
+matplotlib
+altair
+streamlit
+streamlit-folium
+folium
+numpy
+
+# Network and graph visualization
+networkx
+pyvis
