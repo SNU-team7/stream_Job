@@ -341,7 +341,7 @@ for job_category in st.session_state.color_scheme.keys():
 PLOTLY_COLORS = list(st.session_state.color_scheme.values())
 
 # CSV 파일 읽기 (사용자가 업로드한 파일로 바꿔주세요)
-file_path = "tech_keywords_combined.csv"
+file_path = "data/tech_keywords_combined.csv"
 data = pd.read_csv(file_path)
 
 # 예시로 사용자가 선택한 기술 리스트
@@ -405,7 +405,7 @@ st.markdown(f"""
         </div>
         <div class="menu">
             <a href="https://www.wanted.co.kr/wdlist" target="_self">≡채용</a>
-            <a href="http://localhost:8501/analysis_page" target="_self">커리어</a>
+            <a href="https://www.wanted.co.kr/events" target="_self">커리어</a>
             <a href="https://social.wanted.co.kr/community" target="_self">소셜</a>
             <a href="https://www.wanted.co.kr/cv/list" target="_self">이력서</a>
             <a href="https://www.wanted.co.kr/gigs/experts" target="_self">프리랜서</a>
@@ -658,13 +658,13 @@ with tab2:
 
     # CSV 파일 및 데이터 전처리
     # 데이터 로드
-    tech_data = pd.read_csv("tech_keywords_combined.csv")
-    seniority_data = pd.read_csv('경력_범위별_공고_수.csv')
+    tech_data = pd.read_csv("data/tech_keywords_combined.csv")
+    seniority_data = pd.read_csv('data/경력_범위별_공고_수.csv')
     # 'DB'를 'Big Data/AI'로 변경
     seniority_data['직무'] = seniority_data['직무'].replace('DB', 'Data')
 
     total_seniority_data = seniority_data.iloc[:, 1:].sum(axis=1)
-    file_path = "fintech_jobs_final.csv"
+    file_path = "data/fintech_jobs_final.csv"
     job_monthly_trend, job_growth_rate = preprocess_data(file_path, period=1)
 
     # 최신 월 성장률 가져오기
@@ -867,7 +867,7 @@ with tab2:
         ], [1, 1])  # 색상 비율 1:1
 
         # [1] CSV 파일 읽기
-        csv_file_name = "tech_keywords_combined.csv"
+        csv_file_name = "data/tech_keywords_combined.csv"
 
         df = pd.read_csv(csv_file_name)
 
@@ -1012,7 +1012,7 @@ with tab2:
 
 with tab3:
     # CSV 파일 경로 설정 (예시로 파일명 'map_data.csv' 사용)
-    df = pd.read_csv('map_data.csv')
+    df = pd.read_csv('data/map_data.csv')
 
     # 데이터 전처리: 지역별 직종의 개수 계산 (공고 수 계산)
     job_count = df.groupby(['지역', '직종']).size().reset_index(name='공고 수')
